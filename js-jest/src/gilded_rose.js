@@ -1,5 +1,9 @@
-const {isAgedBrie, handleBrie, isSulfuras, handleSulfuras, isConjuredItem, handleConjuredItem, handleQuality} = require("./helpers");
+const {isConjuredItem, handleConjuredItem} = require("./helpers/ConjuredItems");
+const {isSulfuras, handleSulfuras} = require("./helpers/Sulfuras");
+const {isAgedBrie, handleBrie} = require("./helpers/AgedBrie");
 const {isBackstagePass, handleBackstagePass} = require("./helpers/BackstagePasses");
+
+const {handleQuality} = require("./helpers");
 
 class Item {
     constructor(name, sellIn, quality) {
