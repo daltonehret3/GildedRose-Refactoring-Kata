@@ -1,9 +1,5 @@
 const isBackstagePass = (item) => {
-    if(item.name === 'Backstage passes to a TAFKAL80ETC concert'){
-        return true;
-    }
-    
-    return false;
+    return item.name === 'Backstage passes to a TAFKAL80ETC concert';
 };
 
 const handleBackstagePass = (item) => {
@@ -18,9 +14,6 @@ const handleBackstagePass = (item) => {
     }
 
     item.sellIn --;
-
-    {item.quality > 50 ? item.quality = 50 : null}
-
 
     return item;
 };

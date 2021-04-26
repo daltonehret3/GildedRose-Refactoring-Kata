@@ -1,4 +1,4 @@
-    function handleBrie(item) {
+    const handleBrie = (item) => {
         if(item.quality < 50){
             item.quality += 1
         }
@@ -8,35 +8,9 @@
         return item
     }
 
-    function isAgedBrie(item){
-        if(item.name === 'Aged Brie'){
-            return true;
-        }
-        
-        return false;
+    const isAgedBrie = (item) => {
+        return item.name === 'Aged Brie';
     }
-
-    // function isBackstagePass(item) {
-    //     if(item.name === 'Backstage passes to a TAFKAL80ETC concert'){
-    //         return true;
-    //     }
-        
-    //     return false;
-    // };
-
-    // function handleBackstagePass(item) {
-    //     if(item.sellIn <= 0){
-    //         item.quality = 0
-    //     } else if(item.sellIn <= 5){
-    //         item.quality = item.quality + 3
-    //     }else if(item.sellIn <= 10){
-    //         item.quality = item.quality + 2;
-    //     }
-
-    //     {item.quality > 50 ? item.quality = 50 : null}
-
-    //     return item;
-    // };
 
     const isSulfuras = (item) => (
         item.name === 'Sulfuras, Hand of Ragnaros'
@@ -57,11 +31,24 @@
             item.quality -= 2;
         }
 
-
         item.sellIn --;
 
         return item;
     }
+
+    const handleQuality = (item) => {
+        if(!isSulfuras(item)) {
+            if (item.quality > 50) {
+                item.quality = 50;
+            } else if (item.quality < 0) {
+                item.quality = 0;
+            }
+        }else{
+            item.quality = 80;
+        }
+
+        return item;
+    };
 
 module.exports = {
     isSulfuras,
@@ -69,5 +56,6 @@ module.exports = {
     isConjuredItem,
     handleBrie,
     handleSulfuras,
-    handleConjuredItem
+    handleConjuredItem,
+    handleQuality
 }
