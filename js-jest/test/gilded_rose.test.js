@@ -61,12 +61,18 @@ describe("Gilded Rose", () => {
     const items = gildedRose.updateQuality();
     expect(items[0].quality).toStrictEqual(50);
   });
-  // it('should update the quality of backstage passes')
 
-  // it('should run through all the test_fixtures items', () => {
-  //   const gildedRose = items;
-
-  //   console.log({gildedRose})
-  //   expect(testItems[0].name).toStrictEqual('Conjured Mana Cake');
-  // });
+  it('should handle the list of items from ./texttest_fixtures', () => {
+    const gildedRose = new Shop(items);
+    const updatedItems = gildedRose.updateQuality();
+    expect(updatedItems[0].quality).toStrictEqual(19);
+    expect(updatedItems[1].quality).toStrictEqual(1);
+    expect(updatedItems[2].quality).toStrictEqual(6);
+    expect(updatedItems[3].quality).toStrictEqual(80);
+    expect(updatedItems[4].quality).toStrictEqual(80);
+    expect(updatedItems[5].quality).toStrictEqual(21);
+    expect(updatedItems[6].quality).toStrictEqual(50);
+    expect(updatedItems[7].quality).toStrictEqual(50);
+    expect(updatedItems[8].quality).toStrictEqual(4);
+  });
 });
