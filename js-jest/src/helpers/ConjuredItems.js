@@ -1,6 +1,5 @@
-const isConjuredItem = (item) => {
-    return item.name === 'Conjured Mana Cake';
-};
+const isConjuredItem = (item) =>
+    item.name === 'Conjured Mana Cake';
 
 const handleConjuredItem = (item) => {
     if (item.quality > 0) {

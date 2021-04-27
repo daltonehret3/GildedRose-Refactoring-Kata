@@ -1,6 +1,5 @@
-const isAgedBrie = (item) => {
-    return item.name === 'Aged Brie';
-}
+const isAgedBrie = (item) =>
+    item.name === 'Aged Brie';
 
 const handleBrie = (item) => {
     if(item.quality < 50){

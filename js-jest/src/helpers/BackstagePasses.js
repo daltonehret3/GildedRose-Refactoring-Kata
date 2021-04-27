@@ -1,6 +1,5 @@
-const isBackstagePass = (item) => {
-    return item.name === 'Backstage passes to a TAFKAL80ETC concert';
-};
+const isBackstagePass = (item) =>
+    item.name === 'Backstage passes to a TAFKAL80ETC concert';
 
 const handleBackstagePass = (item) => {
     if(item.sellIn <= 0){
