@@ -1,9 +1,9 @@
-const {isConjuredItem, handleConjuredItem} = require("./helpers/ConjuredItems");
-const {isSulfuras, handleSulfuras} = require("./helpers/Sulfuras");
-const {isAgedBrie, handleBrie} = require("./helpers/AgedBrie");
-const {isBackstagePass, handleBackstagePass} = require("./helpers/BackstagePasses");
+const {handleConjuredItem} = require("./helpers/ConjuredItems");
+const {handleSulfuras} = require("./helpers/Sulfuras");
+const {handleBrie} = require("./helpers/AgedBrie");
+const {handleBackstagePass} = require("./helpers/BackstagePasses");
 
-const {handleQuality} = require("./helpers");
+const {handleQuality, handleOtherItems} = require("./helpers");
 
 class Item {
     constructor(name, sellIn, quality) {
@@ -20,27 +20,24 @@ class Shop {
 
     updateQuality() {
         return this.items.map((item) => {
-            if (isBackstagePass(item)) {
-                item = handleBackstagePass(item);
-            } else if (isAgedBrie(item)) {
-                item = handleBrie(item);
-            } else if (isSulfuras(item)) {
-                item = handleSulfuras(item)
-            } else if (isConjuredItem(item)) {
-                item = handleConjuredItem(item);
-            } else {
-                item.sellIn--;
-                if (item.quality > 0) {
-                    item.quality--;
-                }
-                if (item.sellIn < 0) {
-                    if (item.quality > 0) {
-                        item.quality--;
-                    }
-                }
+            switch (item.name) {
+                case 'Backstage passes to a TAFKAL80ETC concert':
+                    handleBackstagePass(item);
+                    break;
+                case 'Aged Brie':
+                    handleBrie(item);
+                    break;
+                case 'Sulfuras, Hand of Ragnaros':
+                    handleSulfuras(item);
+                    break;
+                case 'Conjured Mana Cake':
+                    handleConjuredItem(item);
+                    break;
+                default:
+                    handleOtherItems(item);
             }
 
-            item = handleQuality(item);
+            handleQuality(item);
 
             return item;
         });

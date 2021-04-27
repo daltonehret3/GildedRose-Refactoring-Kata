@@ -14,6 +14,19 @@ const handleQuality = (item) => {
     return item;
 };
 
+const handleOtherItems = (item) => {
+    item.sellIn--;
+    if (item.quality > 0) {
+        item.quality--;
+    }
+    if (item.sellIn < 0) {
+        if (item.quality > 0) {
+            item.quality--;
+        }
+    }
+}
+
 module.exports = {
-    handleQuality
+    handleQuality,
+    handleOtherItems
 }

@@ -1,6 +1,3 @@
-const isBackstagePass = (item) =>
-    item.name === 'Backstage passes to a TAFKAL80ETC concert';
-
 const handleBackstagePass = (item) => {
     if(item.sellIn <= 0){
         item.quality = 0
@@ -18,6 +15,5 @@ const handleBackstagePass = (item) => {
 };
 
 module.exports = {
-    isBackstagePass,
     handleBackstagePass
 }

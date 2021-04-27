@@ -1,6 +1,3 @@
-const isConjuredItem = (item) =>
-    item.name === 'Conjured Mana Cake';
-
 const handleConjuredItem = (item) => {
     if (item.quality > 0) {
         item.quality -= 2;
@@ -16,6 +13,5 @@ const handleConjuredItem = (item) => {
 }
 
 module.exports = {
-    isConjuredItem,
     handleConjuredItem
 }
